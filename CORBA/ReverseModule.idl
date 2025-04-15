@@ -1,0 +1,6 @@
+module ReverseModule //module ReverseModule is the name of the module
+{
+    interface Reverse{
+        string reverse_string(in string str);
+    };
+};
