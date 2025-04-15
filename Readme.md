@@ -2,9 +2,11 @@ Assignment 1:-
 
 Installations
         1)java jdk
+	
         link: https://www.oracle.com/in/java/technologies/downloads/#jdk20-windows
 	
  Steps
+ 
  1)open cmd prompt 
  
  2)javac Server.java
@@ -18,10 +20,17 @@ Installations
  6)java Client
 
 
-*********Assignment 2**********
+
+
+
+Assignment 2
+
 Open cmd prompt
+
 Run idlj- fall command.
+
 Run Server Program
+
 Run Client Program 
 
 
