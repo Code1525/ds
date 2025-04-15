@@ -1,0 +1,13 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.Container {
+    position: relative;
+    text-align: start;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 10;
+    border: 1px solid black;
+}
