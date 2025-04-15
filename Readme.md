@@ -61,7 +61,9 @@ Assignment 3:-
 	
   	i. mpiccarr_sum.c -o mpi_sum
 	
-  	ii. mpirun -np 4 ./mpi_sum
+  	ii. mpirun -np 
+   	
+    	4 ./mpi_sum
 	
  	5. The output will be displayed.
 	
