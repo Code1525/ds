@@ -1,0 +1,18 @@
+Create a folder then create 2 files in it: Server.java and Client.java
+
+Write Server.java code in its own file
+Write Client.java code in its own file
+
+To run:
+Open 2 seperate terminals:
+
+1st terminal(for server.java)
+$ javac Server.java
+$ java Server
+
+2nd terminal(for Client.java)
+$ javac Client.java
+$ java Client
+
+& Done..!
+
