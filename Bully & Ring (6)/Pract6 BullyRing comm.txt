@@ -1,0 +1,10 @@
+Create a folder Bullyring then add file bullyring.cpp in it
+
+To run:
+Open terminal:
+$ g++ bullyring.cpp -o bullyring
+$ ./bullyring 
+
+that is: 
+$ g++ (filename.cpp) -o (filename)
+$ ./(filename)
