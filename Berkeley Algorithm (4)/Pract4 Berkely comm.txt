@@ -1,0 +1,13 @@
+Create a folder Clk_Syn then add 2 files:
+Server.py
+Client.py
+
+
+Open 2 different terminals:
+
+To run:
+1st terminal(for Server.py)
+$ python Server.py
+
+2nd terminal(for Client.py)
+$ python Client.py
