@@ -1,0 +1,23 @@
+Create a folder StringRev_CORBA then create 4 files in it:
+ReverseClient.java
+ReverseServer.java
+ReverseImpl.java
+ReverseModule.idl
+
+Write the codes in their respective files
+
+To run:
+Open 3 seperate terminals:
+
+1st terminal(for idlj):
+$ cd StringRev_CORBA
+$ idlj -fall ReverseModule.idl
+$ orbd -ORBIinitialPort 1050&
+
+
+2nd terminal(for ReverseServer)
+$ java ReverseServer -ORBIinitialPort 1050& -ORBIinitialHost localhost&
+
+
+3rd terminal(for ReverseClient)
+$ java ReverseClient -ORBIinitialHost localhostaa
