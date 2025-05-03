@@ -1,44 +1,21 @@
-> import pip 
-
-> !pip install mpi4py
-
-> from mpi4py import MPI
-  print("MPI is working correctly!")
-
-> import numpy as np
-
-> comm= MPI.COMM_WORLD #Initialize MPI communicator
-  rank= comm.Get_rank() # Get the rank of the current process
-  size= comm.Get_size()# Get the total number of processer 
-
-> #Define the array of elements fonty in process)
-if rank==0:
-  data1= np.array([5, 5,5,6], dtype=int)#Set1 Of Elements
-  data2 = np.array([7, 7,7], dtype=int)#Set2 Of Elements
-else:
-  data1 = None
-  data2 = None
-
-> #Scatter the data to all processes
-local_data1 = np.empty(len(data1), dtype=int)
+from mpi4py import MPI
+import numpy as np
+ARRAY_SIZE = 16
+comm = MPI.COMM_WORLD
+rank = comm.Get_rank()
+size = comm.Get_size()
 if rank == 0:
-  comm.Scatter(data1, local_data1, root=0)
+    array = np.arange(1, ARRAY_SIZE + 1, dtype='i')  
 else:
-  comm.Scatter(None, local_data1, root=0)
-
-> #Calculate the local sum
-local_sum = np.sum(local_data1)
-print(f"Process{rank} local sum: {local_sum}")
-
-> # Calculate the global sum
-#Gather local sums to the root process
-global_sum = comm.reduce(local_sum, op=MPI.SUM, root=0)
-
-> #Print Final Sum in Process 0
+    array = None
+subarray_size = ARRAY_SIZE // size
+subarray = np.empty(subarray_size, dtype='i')
+comm.Scatter([array, MPI.INT], [subarray, MPI.INT], root=0)
+local_sum = np.sum(subarray)
+print(f"Process {rank} local sum is {local_sum}")
+sum_result = comm.reduce(local_sum, op=MPI.SUM, root=0)
 if rank == 0:
-  local_data2 = np.empty(len(data2), dtype=int)
-  comm.Scatter(data2, local_data2, root=0)
-  local_sum2 = np.sum(local_data2)
-  print(f"Process {rank} local sum2: {local_sum2}")
-  total_sum = local_sum + local_sum2
-  print(f"Total sum: {total_sum}")
+    print(f"The sum of the elements is {sum_result}")
+
+# command for the run 
+    mpiexec -n 4 python arr_sum.py
